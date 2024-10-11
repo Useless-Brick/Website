@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Useless Brick</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Favicon (Optional) -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <!-- Google Fonts (Optional) -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> 
+
+    <!-- Font Awesome CDN for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J01QB82XWP"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-J01QB82XWP');
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Useless Brick",
+  "url": "https://uselessbrick.com",
+  "logo": "https://uselessbrick.com/images/useless-brick-logo.png",
+  "sameAs": [
+    "https://discord.gg/EtHYAdZckP",
+    "https://x.com/useless_brick",
+    "https://docs.uselessbrick.com",
+    "https://console.uselessbrick.com",
+    "https://explorer.uselessbrick.com"
+  ]
+}
+</script>
+
+</head>
+<body>
+    <div class="container">
+        <img src="images/useless.jpg" alt="Useless Brick Logo - Click to toggle music" class="logo" id="logo" tabindex="0">
+        <h1>It's Me</h1>
+        <p>Your premier destination for absolutely pointless mining!</p>
+        <a href="https://discord.gg/EtHYAdZckP" target="_blank" class="discord-button">Join Our Discord and Waste Time</a>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <ul class="footer-links">
+            <li><a href="https://discord.gg/EtHYAdZckP" target="_blank"><i class="fab fa-discord"></i> Discord</a></li>
+            <li><a href="https://x.com/useless_brick" target="_blank"><i class="fab fa-twitter"></i> Twitter</a></li>
+            <li><a href="https://docs.uselessbrick.com" target="_blank"><i class="fas fa-book"></i> Docs</a></li>
+            <li><a href="https://console.uselessbrick.com" target="_blank"><i class="fas fa-terminal"></i> Console</a></li>
+            <li><a href="https://explorer.uselessbrick.com" target="_blank"><i class="fas fa-search"></i> Explorer</a></li>
+        </ul>
+    </footer>
+
+    <!-- Background Music -->
+    <audio id="background-music" src="music.mp3" loop preload="auto"></audio>
+    
+    <!-- JavaScript for Music Control -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var audio = document.getElementById('background-music');
+            var logo = document.getElementById('logo');
+            var isPlaying = false;
+
+            // Function to toggle music and logo animation
+            function toggleMusic() {
+                if (isPlaying) {
+                    audio.pause();
+                    isPlaying = false;
+                    logo.classList.remove('spinning');
+                    logo.setAttribute('aria-pressed', 'false');
+                } else {
+                    var playPromise = audio.play();
+                    if (playPromise !== undefined) {
+                        playPromise.then(function() {
+                            audio.volume = 0.6; // Set volume to 80%
+                            isPlaying = true;
+                            logo.classList.add('spinning');
+                            logo.setAttribute('aria-pressed', 'true');
+                        }).catch(function(error) {
+                            console.log('Play prevented:', error);
+                            // Optionally, display a message to the user
+                        });
+                    }
+                }
+            }
+
+            // Add click event listener to the logo
+            logo.addEventListener('click', toggleMusic);
+
+            // Accessibility: Allow toggling with Enter or Space key
+            function handleKeyPress(event) {
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    toggleMusic();
+                }
+            }
+
+            logo.addEventListener('keypress', handleKeyPress);
+        });
+    </script>
+</body>
+</html>

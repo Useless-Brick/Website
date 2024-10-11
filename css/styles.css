@@ -1,0 +1,211 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #FFFFFF; /* White background */
+    color: #000000; /* Black text */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 80px; /* Increased space for the footer */
+}
+
+/* Container Styling */
+.container {
+    text-align: center;
+    background-color: #F8F8F8; /* Slightly off-white for subtle contrast */
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 90%;
+    transition: transform 0.3s ease;
+}
+
+/* Logo Styling */
+.logo {
+    width: 150px;
+    height: auto;
+    margin-bottom: 20px;
+    transition: transform 0.5s ease, filter 0.5s ease;
+    /* Initial state for the logo */
+    transform: rotate(0deg) scale(1);
+    filter: grayscale(100%);
+    cursor: pointer; /* Indicate that the logo is clickable */
+    outline: none; /* Remove default focus outline */
+}
+
+/* Spinning Animation */
+@keyframes spin {
+    from {
+        transform: rotate(0deg) scale(1);
+    }
+    to {
+        transform: rotate(360deg) scale(1);
+    }
+}
+
+/* Spinning Class */
+.spinning {
+    animation: spin 3s linear infinite;
+}
+
+/* Hover Effects for Logo */
+.logo:hover {
+    transform: rotate(360deg) scale(1.2);
+    filter: grayscale(0%) brightness(1.2) contrast(1.1);
+}
+
+/* Instruction Text Styling */
+.instruction {
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    color: #555555; /* Medium gray for instructions */
+}
+
+/* Heading Styling */
+.container h1 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Paragraph Styling */
+.container p {
+    font-size: 1rem;
+    margin-bottom: 30px;
+    color: #333333; /* Dark gray for subtitle */
+}
+
+/* Discord Button Styling */
+.discord-button {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 1rem;
+    color: #FFFFFF;
+    background-color: #5865F2; /* Discord Blurple */
+    border: none;
+    border-radius: 25px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-weight: bold;
+}
+
+/* Hover Effects for Discord Button */
+.discord-button:hover {
+    background-color: #4752C4; /* Darker Blurple on hover */
+    transform: scale(1.05);
+}
+
+/* Footer Styling */
+.footer {
+    width: 100%;
+    background-color: #F8F8F8; /* Same as container background */
+    padding: 20px 0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer Links Styling */
+.footer-links {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap; /* Prevent wrapping */
+    gap: 20px;
+    padding: 0 20px; /* Add horizontal padding */
+    overflow-x: auto; /* Enable horizontal scrolling if necessary */
+}
+
+/* Individual Footer Link Styling */
+.footer-links li a {
+    text-decoration: none;
+    color: #000;
+    font-size: 0.9rem; /* Reduced from 1rem to 0.9rem */
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.3s ease;
+    white-space: nowrap; /* Prevent text wrapping */
+}
+
+/* Hover Effects for Footer Links */
+.footer-links li a:hover {
+    color: #5865F2; /* Discord Blurple or any highlight color */
+}
+
+/* Footer Icons Styling */
+.footer-links li a i {
+    font-size: 1.2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    /* Adjust container padding */
+    .container {
+        padding: 20px;
+    }
+
+    /* Adjust logo size */
+    .logo {
+        width: 100px;
+    }
+
+    /* Adjust heading size */
+    .container h1 {
+        font-size: 1.5rem;
+    }
+
+    /* Adjust paragraph size */
+    .container p {
+        font-size: 0.9rem;
+    }
+
+    /* Adjust instruction text size */
+    .instruction {
+        font-size: 0.8rem;
+    }
+
+    /* Adjust Discord button size */
+    .discord-button {
+        padding: 12px 25px;
+        font-size: 0.9rem;
+    }
+
+    /* Footer adjustments */
+    .footer-links {
+        gap: 15px; /* Slightly reduce gap */
+        padding: 0 10px; /* Reduce horizontal padding */
+    }
+
+    /* Further reduce font size on smaller screens */
+    .footer-links li a {
+        font-size: 0.8rem;
+    }
+
+    /* Prevent footer from being fixed to allow content to scroll if needed */
+    .footer {
+        position: fixed;
+        padding: 15px 0;
+    }
+
+    /* Optional: Hide scrollbar for better aesthetics */
+    .footer-links::-webkit-scrollbar {
+        display: none;
+    }
+    .footer-links {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+    }
+}
